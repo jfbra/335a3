@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to SHIT!</title>
+
+        <script>
+            const showHome = () => {
+                document.getElementById("home").style.display = "block";
+                document.getElementById("staff").style.display = "none";
+                document.getElementById("instituteShop").style.display = "none";
+                document.getElementById("userRegistration").style.display = "none";
+                document.getElementById("guestBook").style.display = "none";
+            }
+            const showStaff = () => {
+                document.getElementById("home").style.display = "none";
+                document.getElementById("staff").style.display = "block";
+                document.getElementById("instituteShop").style.display = "none";
+                document.getElementById("userRegistration").style.display = "none";
+                document.getElementById("guestBook").style.display = "none";
+            }
+            const showInstituteShop = () => {
+                document.getElementById("home").style.display = "none";
+                document.getElementById("staff").style.display = "none";
+                document.getElementById("instituteShop").style.display = "block";
+                document.getElementById("userRegistration").style.display = "none";
+                document.getElementById("guestBook").style.display = "none";
+            }
+            const showUserRegistration = () => {
+                document.getElementById("home").style.display = "none";
+                document.getElementById("staff").style.display = "none";
+                document.getElementById("instituteShop").style.display = "none";
+                document.getElementById("userRegistration").style.display = "block";
+                document.getElementById("guestBook").style.display = "none";
+            }
+            const showGuestBook = () => {
+                document.getElementById("home").style.display = "none";
+                document.getElementById("staff").style.display = "none";
+                document.getElementById("instituteShop").style.display = "none";
+                document.getElementById("userRegistration").style.display = "none";
+                document.getElementById("guestBook").style.display = "block";
+            }
+
+            window.onload = showHome;
+        </script>
+
+    </head>
+
+    <body>
+        <h1>This is my SHIT website.</h1>
+        <table>
+            <tr style="cursor: pointer;">
+                <td onclick="showHome();">Home</td>
+                <td onclick="showStaff();">Staff</td>
+                <td onclick="showInstituteShop();">Shop</td>
+                <td onclick="showUserRegistration();">Register</td>
+                <td onclick="showGuestBook();">Guest Book</td>
+            </tr>
+        </table>
+
+        <div id="home">
+            <p>Welcome home</p>
+        </div>
+        <div id="staff">
+            <p>Welcome to Staff</p>
+        </div>
+        <div id="instituteShop">
+            <p>Welcome to the shop</p>
+        </div>
+        <div id="userRegistration">
+            <p>Register!</p>
+        </div>
+        <div id="guestBook">
+            <p>Leave a comment!</p>
+        </div>
+    </body>
+</html>
