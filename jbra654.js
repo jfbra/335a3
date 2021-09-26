@@ -92,8 +92,18 @@ const productSearch = () => {
 
 const getStaff = () => {
     const fetchPromise = fetch('http://localhost:5000/api/GetAllStaff');
-    const streamPromise = fetchPromise.then((response) => response.text());
-    streamPromise.then((data) => alert(data));
+    const streamPromise = fetchPromise.then((response) => response.json());
+    streamPromise.then((data) => getVcard(data));
+}
+
+const getVcard = (data) => {
+    const vcard = (staff) => {
+        const fetchPromise = fetch(`http://localhost:5000/api/GetCard/${ staff.id }`);
+        const streamPromise = fetchPromise.then((response) => response.text());
+        streamPromise.then((data) => alert(data));
+    }
+
+    data.forEach(vcard)
 }
 
 window.onload = showHome;
