@@ -11,10 +11,7 @@
 
 <header>
     <div style="display: inline-block; vertical-align: top;">
-        <img src="http://localhost:5000/logo-192x192.png" alt="logo-192x192" height="100">
-        <div style="display: inline-block; vertical-align: top;">
-            <h1>Southern Hemisphere Institue of Technology</h1>
-        </div>
+        <img src="http://localhost:5000/api/GetLogo" alt="logo-192x192" height="100">
     </div>
 
     <hr>
@@ -33,8 +30,13 @@
 <body>
     <div id="home">
         <h1>Welcome to S.H.I.T!</h1>
-        <p>Here at the Southern Hemisphere Insitute of Technology we are working to make the world a less shit place. Join us on your journey and we'll help you put your shit to use.</p>
-        <img src="http://localhost:5000/api/GetLogo" alt="logo-192x192" height="500">
+        <p>Here at the Southern Hemisphere Insitute of Technology we are dedicated to making the world a less shit place. Join us on your learning journey and we'll help you put your shit to use.</p>
+        <img src="https://media.istockphoto.com/photos/yale-university-buildings-picture-id475315086?k=20&m=475315086&s=612x612&w=0&h=Y6dsoNtH6uceZRmcoVbcmqYyHzyH0aVsJxb1w4FAebA=" alt="The Campus" height="500">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fermentum viverra est a molestie. Nam ultricies nisi id sapien maximus, eget efficitur mi tempor. Integer egestas leo ut accumsan rhoncus. In et magna in quam venenatis congue. Proin mattis sapien et faucibus dapibus. Integer et nibh sagittis, sodales mi blandit, sodales quam. Phasellus eget suscipit magna, sed vestibulum quam. Nullam ullamcorper massa ac urna sollicitudin, eu vulputate nisl ornare. Praesent fermentum odio porta augue laoreet, vitae lacinia mauris ullamcorper. Donec ligula tellus, malesuada sit amet rutrum quis, venenatis sed odio. Vestibulum augue dolor, pretium ac vulputate ut, dapibus non nisl. Morbi ac vestibulum nulla, non pharetra augue. In scelerisque nisl eu velit suscipit, sit amet dignissim nisl posuere. Proin venenatis dui sapien, ac fringilla tortor ultrices vitae.</p>
+        <p>In ut viverra lacus, in consequat diam. Donec venenatis nibh eu condimentum semper. Nam pretium semper nisl, non vestibulum est blandit in. Etiam tristique dapibus magna, nec viverra nulla blandit a. Integer sed cursus massa, non luctus odio. Maecenas congue dignissim hendrerit. Nullam nec finibus est. Proin feugiat urna eget turpis fermentum volutpat. Ut fermentum eu mi consectetur vestibulum. Nulla pretium justo ante, at consequat ex aliquam eu. Mauris a erat eget dolor tempus auctor. Curabitur pulvinar turpis in nisi eleifend, porta vestibulum mi lacinia. Ut lorem purus, posuere nec ultrices et, lacinia vitae nisi. Proin est neque, vestibulum sit amet facilisis a, pulvinar in nibh. Etiam vel consequat sem.</p>
+        <img src="https://st.depositphotos.com/1037987/4846/i/600/depositphotos_48461417-stock-photo-class-of-university-students-using.jpg" alt="Students Learning" height="500">
+        <p>Vestibulum venenatis, purus in placerat egestas, nunc magna sollicitudin mauris, sed tempor dolor sem vel ante. Nam consequat nisi magna, tempus euismod neque tristique non. Aliquam eget pellentesque felis. Nunc non sapien fringilla, fermentum erat vitae, viverra lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ut finibus nunc. In malesuada molestie nisl, ut pulvinar purus pharetra nec. Mauris ultricies maximus fringilla.</p>
+        <img src="https://media.istockphoto.com/photos/graduation-day-picture-id1066324992?k=20&m=1066324992&s=612x612&w=0&h=IThBZfVQnjL1mCR5fivmqigAhCPL_RkRzGuaSisNXrc=" alt="Students Learning" height="500">
     </div>
     <div id="staff">
         <p>Welcome to Staff</p>
@@ -49,7 +51,8 @@
         <p>Register!</p>
     </div>
     <div id="guestBook">
-        <p>Leave a comment!</p>
+        <h2>Leave us a comment or a suggestion!</h2>
+        <iframe src="http://localhost:5000/api/GetComments" style="height:500px; width:100%;" id="comments"></iframe>
     </div>
 </body>
 

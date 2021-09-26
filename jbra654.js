@@ -42,6 +42,7 @@ const showGuestBook = () => {
     document.getElementById("userRegistration").style.display = "none";
     document.getElementById("guestBook").style.display = "block";
     document.title = "Guest Book";
+    getComments();
 }
 
 const getVersion = () => {
@@ -68,14 +69,14 @@ const showDetails = (products) => {
     productsTable.innerHTML = htmlString;
 }
 
-function productSearch() {
+const productSearch = () => {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("productsTable");
     tr = table.getElementsByTagName("tr");
 
-    for (i = 1; i < tr.length; i++) {
+    for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[2];
         if (td) {
             txtValue = td.textContent || td.innerText;
@@ -87,6 +88,15 @@ function productSearch() {
         }
     }
 }
+
+// const getComments = () => {
+//     const fetchPromise = fetch('http://localhost:5000/api/GetComments');
+//     const streamPromise = fetchPromise.then((response) => response.text());
+//     streamPromise.then((data) => alert(data));
+
+//     const comments = document.getElementById("comments");
+//     comments.setAttribute = 
+// }
 
 window.onload = showHome;
 getVersion();
