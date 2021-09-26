@@ -10,16 +10,25 @@
     text-align: center;
 }
 
+#staffTable,
+#staffTable th, 
+#staffTable td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+
 #myInput {
-    background-image: url('http://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
+    background-image: url('http://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
     background-size: 20px;
-    width: 50%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    width: 50%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
   }
 
 footer {
