@@ -119,7 +119,25 @@ const parseVcard = (vcard) => {
     alert(person.name);
 }
 
-window.onload = showHome;
+const submitComment = () => {
+    let message = document.getElementById('commentMessage').value;
+    let username = document.getElementById('commentName').value;
+
+    fetch('http://localhost:5000/api/WriteComment', {
+        method: "POST",
+        body: JSON.stringify({
+            comment:`${message}`,
+            name: `${username}`
+        }),
+        headers: {
+            "Content-type": "application.json"
+        }
+    })
+
+    showGuestBook();
+}
+
+window.onload = showHome();
 getVersion();
 
 
