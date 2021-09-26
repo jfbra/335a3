@@ -97,12 +97,14 @@ const getStaff = () => {
 }
 
 const getVcard = (data) => {
+    let staffList = [];
     const vcard = (staff) => {
         const fetchPromise = fetch(`http://localhost:5000/api/GetCard/${ staff.id }`);
         const streamPromise = fetchPromise.then((response) => response.text());
-        streamPromise.then((data) => (parseVcard(data)));
+        streamPromise.then(staffList.push((data)));
     }
     data.forEach(vcard);
+    staffList.forEach(parseVcard);
 } 
 
 const parseVcard = (vcard) => {
@@ -114,7 +116,24 @@ const parseVcard = (vcard) => {
     person["tel"] = fields[7].split(":")[1];
     person["url"] = fields[8].split(/:(.+)/)[1];
     person["areas"] = fields[9].split(":")[1];
-    return person
+    alert(person.name);
+}
+
+const submitForm = () => {
+    let comment = document.getElementById('commentMessage').value;
+    let username = document.getElementById('commentName').value;
+    
+    let postData = `{"comment": "${comment}", "name": "${username}"}` ;
+    const response = fetch(
+        'http://localhost:5000/api/WriteComment',
+        {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method : "POST",
+            body: JSON.stringify(postData)
+        });
+    alert(response.json());
 }
 
 window.onload = showHome;

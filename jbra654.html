@@ -54,7 +54,16 @@
     </div>
     <div id="guestBook">
         <h2>Leave us a comment or a suggestion!</h2>
-        <iframe src="http://localhost:5000/api/GetComments" style="height:500px; width:100%;" id="comments"></iframe>
+        <form>
+            <label for="commentMessage">Comment:</label><br>
+            <input type="text" id="commentMessage" name="commentMessage" style="width: 50%; height:100px;"><br>
+            <label for="commentName">Name:</label><br>
+            <input type="text" id="commentName" name="commentName"><br>
+            <input type="submit" value="Submit" onclick="submitForm()">
+        </form>
+        <h2>Recent comments:</h2>
+        <hr>
+        <iframe src="http://localhost:5000/api/GetComments" style="height:500px; width:100%; border: 0px;" id="comments"></iframe>
     </div>
 </body>
 
