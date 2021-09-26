@@ -14,6 +14,7 @@ const showStaff = () => {
     document.getElementById("userRegistration").style.display = "none";
     document.getElementById("guestBook").style.display = "none";
     document.title = "Staff";
+    getStaff();
 }
 
 const showInstituteShop = () => {
@@ -89,14 +90,11 @@ const productSearch = () => {
     }
 }
 
-// const getComments = () => {
-//     const fetchPromise = fetch('http://localhost:5000/api/GetComments');
-//     const streamPromise = fetchPromise.then((response) => response.text());
-//     streamPromise.then((data) => alert(data));
-
-//     const comments = document.getElementById("comments");
-//     comments.setAttribute = 
-// }
+const getStaff = () => {
+    const fetchPromise = fetch('http://localhost:5000/api/GetAllStaff');
+    const streamPromise = fetchPromise.then((response) => response.text());
+    streamPromise.then((data) => alert(data));
+}
 
 window.onload = showHome;
 getVersion();
