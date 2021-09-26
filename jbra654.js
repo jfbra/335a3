@@ -64,7 +64,7 @@ const showDetails = (products) => {
     const showProduct = (item) => {
         htmlString += `<tr><td>${item.id}</td><td><img src="http://localhost:5000/api/GetItemPhoto/${item.id}" alt="${item.name} image" height="100"></td><td>${item.name}</td><td>${item.description}</td><td>$${item.price}</td></tr>`
     }
-    products.forEach(showProduct)
+    products.forEach(showProduct);
 
     const productsTable = document.getElementById("productsTable");
     productsTable.innerHTML = htmlString;
@@ -100,10 +100,21 @@ const getVcard = (data) => {
     const vcard = (staff) => {
         const fetchPromise = fetch(`http://localhost:5000/api/GetCard/${ staff.id }`);
         const streamPromise = fetchPromise.then((response) => response.text());
-        streamPromise.then((data) => alert(data));
+        streamPromise.then((data) => (parseVcard(data)));
     }
+    data.forEach(vcard);
+} 
 
-    data.forEach(vcard)
+const parseVcard = (vcard) => {
+    let fields = vcard.split(/\r?\n/);
+    var person = {};
+    person["id"] = fields[4].split(":")[1];
+    person["name"] = fields[3].split(":")[1];
+    person["email"] = fields[6].split(":")[1];
+    person["tel"] = fields[7].split(":")[1];
+    person["url"] = fields[8].split(/:(.+)/)[1];
+    person["areas"] = fields[9].split(":")[1];
+    return person
 }
 
 window.onload = showHome;
