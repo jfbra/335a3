@@ -99,12 +99,12 @@ const getStaff = () => {
 const getVcard = (data) => {
     let staffList = [];
     const vcard = (staff) => {
-        const fetchPromise = fetch(`http://localhost:5000/api/GetCard/${ staff.id }`);
+        const fetchPromise = fetch(`http://localhost:5000/api/GetCard/${staff.id}`);
         const streamPromise = fetchPromise.then((response) => response.text());
         streamPromise.then((data) => parseVcard(data));
     }
     data.forEach(vcard);
-} 
+}
 
 const parseVcard = (vcard) => {
     let fields = vcard.split(/\r?\n/);
@@ -121,14 +121,12 @@ const parseVcard = (vcard) => {
 const showStaffTable = (staff) => {
     const staffTable = document.getElementById("staffTable");
     var row = staffTable.insertRow(-1);
-    var cellId = row.insertCell(-1);
     var cellImage = row.insertCell(-1);
     var cellName = row.insertCell(-1);
     var cellDetails = row.insertCell(-1);
     var cellAreas = row.insertCell(-1);
-    cellId.innerHTML = staff.id;
     cellImage.innerHTML = `<img src="http://localhost:5000/api/GetStaffPhoto/${staff.id}" alt="${staff.name} image" height="100"></img>`;
-    cellName.innerHTML = staff.name;
+    cellName.innerHTML = `<a href="http://localhost:5000/api/GetCard/${staff.id}">${staff.name}</a>`;
     cellDetails.innerHTML = `Email: <a href="mailto: ${staff.email}">${staff.email}</a><br>Phone: <a href="tel: ${staff.tel}">${staff.tel}</a><br>URL: <a href="${staff.url}">${staff.url}</a>`;
     cellAreas.innerHTML = staff.areas;
 }
@@ -140,7 +138,7 @@ const submitComment = () => {
     fetch('http://localhost:5000/api/WriteComment', {
         method: "POST",
         body: JSON.stringify({
-            comment:`${message}`,
+            comment: `${message}`,
             name: `${username}`
         }),
         headers: {
