@@ -43,7 +43,6 @@ const showGuestBook = () => {
     document.getElementById("userRegistration").style.display = "none";
     document.getElementById("guestBook").style.display = "block";
     document.title = "Guest Book";
-    getComments();
 }
 
 const getVersion = () => {
@@ -127,7 +126,7 @@ const showStaffTable = (staff) => {
     var cellAreas = row.insertCell(-1);
     cellImage.innerHTML = `<img src="http://localhost:5000/api/GetStaffPhoto/${staff.id}" alt="${staff.name} image" height="100"></img>`;
     cellName.innerHTML = `<a href="http://localhost:5000/api/GetCard/${staff.id}">${staff.name}</a>`;
-    cellDetails.innerHTML = `Email: <a href="mailto: ${staff.email}">${staff.email}</a><br>Phone: <a href="tel: ${staff.tel}">${staff.tel}</a><br>URL: <a href="${staff.url}">${staff.url}</a>`;
+    cellDetails.innerHTML = `Email: <a href="mailto: ${staff.email}">${staff.email}</a><br>Phone: <a href="tel: ${staff.tel}">${staff.tel}</a><br>Profile: <a href="${staff.url}">${staff.url}</a>`;
     cellAreas.innerHTML = staff.areas;
 }
 
@@ -135,16 +134,19 @@ const submitComment = () => {
     let message = document.getElementById('commentMessage').value;
     let username = document.getElementById('commentName').value;
 
-    fetch('http://localhost:5000/api/WriteComment', {
+    alert(message);
+
+    const fetchPromise = fetch('http://localhost:5000/api/WriteComment', {
+        headers: {
+            "Content-Type": "application/json",
+        },
         method: "POST",
         body: JSON.stringify({
-            comment: `${message}`,
-            name: `${username}`
-        }),
-        headers: {
-            "Content-type": "application.json"
-        }
-    })
+            "comment": `${message}`,
+            "name": `${username}`
+        })
+    });
+    
     window.onload = showGuestBook();
 }
 
